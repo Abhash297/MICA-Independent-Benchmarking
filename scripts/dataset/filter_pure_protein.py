@@ -39,10 +39,10 @@ pool, cached in pdb_id_reconstruction_method.csv:
 
 import csv
 
-CANDIDATES_CSV = "rcsb_2026_cryoem_candidates.csv"
-COMPOSITION_CSV = "pdb_id_polymer_composition.csv"
-RECON_METHOD_CSV = "pdb_id_reconstruction_method.csv"
-OUTPUT_CSV = "rcsb_2026_pure_protein.csv"
+CANDIDATES_CSV = "../../data/pool/rcsb_2026_cryoem_candidates.csv"
+COMPOSITION_CSV = "../../data/pool/pdb_id_polymer_composition.csv"
+RECON_METHOD_CSV = "../../data/pool/pdb_id_reconstruction_method.csv"
+OUTPUT_CSV = "../../data/pool/rcsb_2026_pure_protein.csv"
 
 INCLUDE_GLYCOPROTEINS = True
 

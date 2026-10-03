@@ -11,8 +11,8 @@ import shlex
 import subprocess
 from pathlib import Path
 
-ROOT = Path("/Users/abhashshrestha/Downloads/MICA-Experiment")
-OUT_CSV = ROOT / "evaluation_chain_comparison.csv"
+ROOT = Path(__file__).resolve().parents[2]
+OUT_CSV = ROOT / "data/evaluation/evaluation_chain_comparison.csv"
 PHENIX_ENV = str(Path.home() / "phenix-2.2.1-6174/phenix_env.sh")
 
 ENTRIES = {

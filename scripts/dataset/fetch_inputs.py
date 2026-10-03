@@ -21,8 +21,8 @@ import shutil
 import subprocess
 from pathlib import Path
 
-SHORTLIST_CSV = "shortlist_12_v3_stratified_random.csv"
-INPUT_DIR = Path("input")
+SHORTLIST_CSV = "../../data/benchmark/shortlist_12_v3_stratified_random.csv"
+INPUT_DIR = Path("../../input")
 
 FASTA_URL = "https://www.rcsb.org/fasta/entry/{}"
 MAP_URL = "https://ftp.ebi.ac.uk/pub/databases/emdb/structures/EMD-{}/map/emd_{}.map.gz"

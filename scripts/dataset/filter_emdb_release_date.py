@@ -22,9 +22,9 @@ import json
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-INPUT_CSV = "rcsb_2026_pure_protein.csv"
-OUTPUT_CSV = "rcsb_2026_final_candidates.csv"
-CACHE_CSV = "emdb_id_map_release_date.csv"
+INPUT_CSV = "../../data/pool/rcsb_2026_pure_protein.csv"
+OUTPUT_CSV = "../../data/pool/rcsb_2026_final_candidates.csv"
+CACHE_CSV = "../../data/pool/emdb_id_map_release_date.csv"
 
 DATE_FROM = "2026-01-01"
 DATE_TO = "2026-09-26"

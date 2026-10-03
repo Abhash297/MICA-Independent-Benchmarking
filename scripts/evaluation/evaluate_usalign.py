@@ -10,9 +10,9 @@ import re
 import subprocess
 from pathlib import Path
 
-ROOT = Path("/Users/abhashshrestha/Downloads/MICA-Experiment")
+ROOT = Path(__file__).resolve().parents[2]
 USALIGN = ROOT / "tools/USalign/USalign"
-OUT_CSV = ROOT / "evaluation_usalign.csv"
+OUT_CSV = ROOT / "data/evaluation/evaluation_usalign.csv"
 
 ENTRIES = {
     "62164": "9k88", "64568": "9uwy", "75023": "10ac", "65506": "9w0j",

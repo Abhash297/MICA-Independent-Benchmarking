@@ -43,10 +43,10 @@ MIN_IDENTITY = 0.25
 MIN_COVERAGE = 0.5
 BATCH_SIZE = 8
 
-FINAL_CANDIDATES_CSV = "rcsb_2026_final_candidates.csv"
-SIZE_CSV = "pdb_id_entry_size.csv"
-TRAINING_FASTA = "training_sequences.fasta"
-OUTPUT_CSV = "shortlist_12_v3_stratified_random.csv"
+FINAL_CANDIDATES_CSV = "../../data/pool/rcsb_2026_final_candidates.csv"
+SIZE_CSV = "../../data/pool/pdb_id_entry_size.csv"
+TRAINING_FASTA = "../../data/benchmark/training_sequences.fasta"
+OUTPUT_CSV = "../../data/benchmark/shortlist_12_v3_stratified_random.csv"
 WORKDIR = Path("mmseqs_tmp_build")
 
 RES_EDGES = [1.5, 2.2, 2.8, 3.4, 4.0]

@@ -8,7 +8,7 @@ import re
 import subprocess
 from pathlib import Path
 
-ROOT = Path("/Users/abhashshrestha/Downloads/MICA-Experiment")
+ROOT = Path(__file__).resolve().parents[2]
 PHENIX_ENV = str(Path.home() / "phenix-2.2.1-6174/phenix_env.sh")
 
 ENTRIES = {
@@ -60,7 +60,7 @@ def main():
             print(f"    {r['domain']}: {r['cc_mask']:.4f} [{flag}]")
 
     import csv
-    out_csv = ROOT / "cc_recomputation_unknown_domains.csv"
+    out_csv = ROOT / "data/docking/cc_recomputation_unknown_domains.csv"
     with open(out_csv, "w", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=["emdb_num", "domain", "cc_mask", "cc_volume", "cc_peaks", "error"])
         writer.writeheader()

@@ -23,7 +23,7 @@ DATE_FROM = "2026-01-01T00:00:00Z"
 DATE_TO = "2026-09-26T23:59:59Z"
 RES_MIN = 1.5
 RES_MAX = 4.0
-OUTPUT_CSV = "rcsb_2026_cryoem_candidates.csv"
+OUTPUT_CSV = "../../data/pool/rcsb_2026_cryoem_candidates.csv"
 # --------------------------------
 
 
