@@ -1,0 +1,8 @@
+pdb_id,size_bin,res_bin,resolution,residue_count,chain_count,title
+9PIK,small,high (2.2-2.8),2.62,1010,2,"Structure of the two-pore domain, outwardly rectifying potassium (TOK1) from Candida albicans, overall structure"
+24VO,small,low (3.4-4.0),3.64,964,4,"Cryo-EM structure of the human wild-type KCNQ2/KCNQ3 heterotetramer (1:3 stoichiometry) in apo state (M2333 WT, without symmetry expansion)"
+9RY7,medium,near-atomic (<2.2),2.17,1310,5,Focused refinement of closed pentamer of the Rhodospirillum rubrum encapsulin from symmetry expansion of icosahedral single particle reconstruction
+9U5Z,medium,mid (2.8-3.4),3.1,2116,2,C3 convertases zymogen C4b2 in activation state
+9OW6,large,near-atomic (<2.2),2.02,2226,6,Hedgehog coronavirus ErinCoV-Ger12 spike receptor binding domain in complex with hedgehog APN
+30GH,large,mid (2.8-3.4),3.1,2145,6,CryoEM structure of human MATa2 in complex with MAT2B isoform v1 at 2.6 A resolution
+9XVI,large,low (3.4-4.0),3.65,2964,4,Arabidopsis ISA2-ISA1-ISA1-ISA2 heterotetramer

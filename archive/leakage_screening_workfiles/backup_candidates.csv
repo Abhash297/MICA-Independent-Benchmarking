@@ -1,0 +1,41 @@
+pdb_id,size_bin,res_bin,resolution,residue_count,chain_count,title
+9PIK,small,high (2.2-2.8),2.62,1010,2,"Structure of the two-pore domain, outwardly rectifying potassium (TOK1) from Candida albicans, overall structure"
+23BX,small,high (2.2-2.8),2.62,819,4,CryoEM structure of EV-D68 US/KY/14-18953 mature virion
+11DR,small,high (2.2-2.8),2.62,762,3,"Human Brain RNA Vault Shoulder bound to ADPR, focused refinement (EMPIAR-10766)"
+22HG,small,high (2.2-2.8),2.61,1005,4,SARS-CoV-2 BA.3.2.2(RE.2.2) RBD in complex with human ACE2 and monoclonal antibody S2H97
+9V81,small,high (2.2-2.8),2.63,1085,5,cryoEM structure of HEP-50768-bound MRGPRX4-Gq complex
+26WC,small,low (3.4-4.0),3.63,610,6,Local refinement of the mpox virus A35R protein in complexed with 17H1 Fab
+11IT,small,low (3.4-4.0),3.62,419,3,1332E5-RBD KP3.1.1 Complex Local Refine
+24VO,small,low (3.4-4.0),3.64,964,4,"Cryo-EM structure of the human wild-type KCNQ2/KCNQ3 heterotetramer (1:3 stoichiometry) in apo state (M2333 WT, without symmetry expansion)"
+9NAH,small,low (3.4-4.0),3.64,1020,2,Monomeric AVAST5 binds a SIR2 domain
+9X05,small,low (3.4-4.0),3.64,1010,5,IL-33 and Itepekimab fab and Tozorakimab fab ternary complex structure
+11MT,medium,near-atomic (<2.2),2.16,1467,3,Influenza A virus Hemagglutinin (A/Darwin/6/2021 H3N2) (C3 symmetry) determined using the SPT Labtech chameleon in the presence of 0.25x SurfACT
+11NC,medium,near-atomic (<2.2),2.16,1998,4,Azotobacter vinelandii MoFeP (C1 symmetry) determined using the SPT Labtech chameleon in the presence of 0.25x SurfACT
+9IAN,medium,near-atomic (<2.2),2.16,1956,6,Nitrogenase maturase NifEN in complex with the cofactor chaperone NifX
+29XZ,medium,near-atomic (<2.2),2.16,1708,6,Cryo-EM structure of Rhodobacter capsulatus cytochrome bc1 dimer at 2.16 A resolution with water molecules and quinone in the quinone reduction site
+9RY7,medium,near-atomic (<2.2),2.17,1310,5,Focused refinement of closed pentamer of the Rhodospirillum rubrum encapsulin from symmetry expansion of icosahedral single particle reconstruction
+9NX1,medium,mid (2.8-3.4),3.1,1967,6,Alpha7-nicotinic acetylcholine receptor bound to conotoxin ImII
+9UWQ,medium,mid (2.8-3.4),3.1,1145,6,A combined Cryo_EM structure of Cagrilintide-AMY1R-Gs complex
+9U7T,medium,mid (2.8-3.4),3.1,1200,2,Structure of the human DCAF8-DDB1 complex
+9U5Z,medium,mid (2.8-3.4),3.1,2116,2,C3 convertases zymogen C4b2 in activation state
+9TXJ,medium,mid (2.8-3.4),3.1,1188,3,Cryo-EM structure of native ITIH4 with 12A12 F(ab)
+9UAR,large,near-atomic (<2.2),1.99,2224,4,CTP synthase DON-state
+9OW6,large,near-atomic (<2.2),2.02,2226,6,Hedgehog coronavirus ErinCoV-Ger12 spike receptor binding domain in complex with hedgehog APN
+9OW4,large,near-atomic (<2.2),2.03,2224,6,Hedgehog coronavirus ErinCoV-12-19 spike receptor binding domain in complex with hedgehog APN
+9NZU,large,near-atomic (<2.2),1.9,2864,6,Atomic resolution cryoEM structure of HPV16 bound to heparin
+9OVP,large,near-atomic (<2.2),1.89,3594,3,Cryo-EM structure of HCoV-OC43-C2 Spike glycoprotein in complex with 9O-acetyl GD3 sialoglycan
+9Y0C,large,high (2.2-2.8),2.61,3294,6,Cryo-EM structure of human VCP/p97-G156D mutant bound to ATPgammaS
+9LP0,large,high (2.2-2.8),2.61,2901,5,Cryo-EM structure of SARS-CoV-2 KP.3.1.1 spike glycoprotein in complex with F61R2-780 Fab
+9Y0B,large,high (2.2-2.8),2.61,3264,6,Cryo-EM structure of human VCP/p97-G156D mutant bound to ADP
+9T9U,large,high (2.2-2.8),2.61,4104,4,Cryo-EM composite structure of mouse TRPM3 alpha 2 in complex with antagonist Ononetin
+9QHM,large,high (2.2-2.8),2.61,4104,4,Cryo-EM structure of mouse TRPM3 alpha 2 in complex with antagonist Ononetin
+30GH,large,mid (2.8-3.4),3.1,2145,6,CryoEM structure of human MATa2 in complex with MAT2B isoform v1 at 2.6 A resolution
+9USW,large,mid (2.8-3.4),3.1,3213,6,Two interacting D13 trimers at mode III interface in Twister assembly
+23FA,large,mid (2.8-3.4),3.1,5684,4,Cryo-EM structure of human ATR-ATRIP complex with Gartisertib
+9VJR,large,mid (2.8-3.4),3.1,3356,4,Cryo-EM structure of TRP melastatin channel with icilin
+9R6S,large,mid (2.8-3.4),3.1,3519,3,Prefusion stabilized spike glycoprotein of human coronavirus OC43.
+9XVI,large,low (3.4-4.0),3.65,2964,4,Arabidopsis ISA2-ISA1-ISA1-ISA2 heterotetramer
+12AI,large,low (3.4-4.0),3.64,9240,4,"Structure of mammalian Type 2 Inositol 1,4,5-trisphosphate receptor (IP3R2) in the presence of IP3/Ca2+/ATP"
+9VED,large,low (3.4-4.0),3.63,3732,6,The cryo-EM structure of mouse Piezo1-MDFI complex
+11OI,large,low (3.4-4.0),3.66,2310,6,Cryo-EM structure of human DNMT3A homo-hexamer
+9TZ3,large,low (3.4-4.0),3.66,2760,6,Cryo-EM structure of human VPS34-CI with ADP:MgF3

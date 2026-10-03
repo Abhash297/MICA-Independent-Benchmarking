@@ -1,0 +1,49 @@
+
+=== [1/12] 62164 ===
+[SKIP] 62164 already done: /workspace/output/62164_9k88_MICA_all_atom_model.pdb
+
+=== [2/12] 64568 ===
+[INFO] 64568 (9uwy): mode=domain-fusion, resolution=4.5
+[OK] 64568: 1049.9s
+
+=== [3/12] 75023 ===
+[INFO] 75023 (10ac): mode=domain-fusion, resolution=4.5
+[OK] 75023: 669.3s
+
+=== [4/12] 65506 ===
+[INFO] 65506 (9w0j): mode=domain-fusion, resolution=4.1
+[OK] 65506: 791.9s
+
+=== [5/12] 76934 ===
+[INFO] 76934 (13bv): mode=map-only, resolution=5.3
+[OK] 76934: 1284.0s
+
+=== [6/12] 71787 ===
+[INFO] 71787 (9pqo): mode=domain-fusion, resolution=5.1
+[OK] 71787: 265.8s
+
+=== [7/12] 71973 ===
+[INFO] 71973 (9pxl): mode=domain-fusion, resolution=4.1
+[OK] 71973: 816.7s
+
+=== [8/12] 70609 ===
+[INFO] 70609 (9om7): mode=domain-fusion, resolution=5.3
+[OK] 70609: 503.6s
+
+=== [9/12] 64362 ===
+[INFO] 64362 (9unu): mode=map-only, resolution=4.2
+[OK] 64362: 1645.7s
+
+=== [10/12] 79027 ===
+[INFO] 79027 (38pa): mode=domain-fusion, resolution=4.7
+[OK] 79027: 779.4s
+
+=== [11/12] 67233 ===
+[INFO] 67233 (9xti): mode=domain-fusion, resolution=5.7
+[OK] 67233: 1859.1s
+
+=== [12/12] 73799 ===
+[INFO] 73799 (9z49): mode=map-only, resolution=5.1
+[OK] 73799: 1359.1s
+
+=== ALL 12 ENTRIES PROCESSED ===

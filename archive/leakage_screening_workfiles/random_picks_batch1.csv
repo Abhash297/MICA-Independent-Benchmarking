@@ -1,0 +1,13 @@
+size_bin,res_bin,rank,pdb_id,max_identity,leak
+large,high (2.2-2.8),6,38PA,0.0,False
+large,low (3.4-4.0),0,9XTI,0.0,False
+large,mid (2.8-3.4),1,9Z49,0.0,False
+large,near-atomic (<2.2),2,9UNU,0.0,False
+medium,high (2.2-2.8),0,10AC,0.0,False
+medium,low (3.4-4.0),0,13BV,0.0,False
+medium,mid (2.8-3.4),1,9OM7,0.0,False
+medium,near-atomic (<2.2),3,9PXL,0.0,False
+small,high (2.2-2.8),0,9UWY,0.0,False
+small,low (3.4-4.0),4,10XW,0.0,False
+small,mid (2.8-3.4),1,9PQO,0.0,False
+small,near-atomic (<2.2),0,9W0J,0.0,False

@@ -1,0 +1,9 @@
+docking_coverage,method,n,median_TM,IQR_TM
+domain-fusion,MICA,9,0.957,0.403
+domain-fusion,ModelAngelo,9,0.963,0.151
+domain-fusion,CryoAtom,9,0.995,0.158
+domain-fusion,EModelX,9,0.935,0.162
+map-only,MICA,3,0.974,0.071
+map-only,ModelAngelo,3,0.975,0.22
+map-only,CryoAtom,3,0.992,0.117
+map-only,EModelX,3,0.962,0.124

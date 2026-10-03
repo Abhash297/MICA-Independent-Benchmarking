@@ -1,0 +1,60 @@
+=== 62164 ===
+Fetching data for EMDB ID: EMD-62164
+API URL: https://www.ebi.ac.uk/emdb/api/entry/62164
+Contour Level: 0.02
+Resolution: 3.93
+=== 64362 ===
+Fetching data for EMDB ID: EMD-64362
+API URL: https://www.ebi.ac.uk/emdb/api/entry/64362
+Contour Level: 0.11
+Resolution: 2.18
+=== 64568 ===
+Fetching data for EMDB ID: EMD-64568
+API URL: https://www.ebi.ac.uk/emdb/api/entry/64568
+Contour Level: 0.2
+Resolution: 2.48
+=== 65506 ===
+Fetching data for EMDB ID: EMD-65506
+API URL: https://www.ebi.ac.uk/emdb/api/entry/65506
+Contour Level: 0.04
+Resolution: 2.09
+=== 67233 ===
+Fetching data for EMDB ID: EMD-67233
+API URL: https://www.ebi.ac.uk/emdb/api/entry/67233
+Contour Level: 0.1
+Resolution: 3.73
+=== 70609 ===
+Fetching data for EMDB ID: EMD-70609
+API URL: https://www.ebi.ac.uk/emdb/api/entry/70609
+Contour Level: 0.2
+Resolution: 3.3
+=== 71787 ===
+Fetching data for EMDB ID: EMD-71787
+API URL: https://www.ebi.ac.uk/emdb/api/entry/71787
+Contour Level: 4.8
+Resolution: 3.1
+=== 71973 ===
+Fetching data for EMDB ID: EMD-71973
+API URL: https://www.ebi.ac.uk/emdb/api/entry/71973
+Contour Level: 0.233
+Resolution: 2.11
+=== 73799 ===
+Fetching data for EMDB ID: EMD-73799
+API URL: https://www.ebi.ac.uk/emdb/api/entry/73799
+Contour Level: 0.32
+Resolution: 3.08
+=== 75023 ===
+Fetching data for EMDB ID: EMD-75023
+API URL: https://www.ebi.ac.uk/emdb/api/entry/75023
+Contour Level: 0.1
+Resolution: 2.47
+=== 76934 ===
+Fetching data for EMDB ID: EMD-76934
+API URL: https://www.ebi.ac.uk/emdb/api/entry/76934
+Contour Level: 0.2
+Resolution: 3.26
+=== 79027 ===
+Fetching data for EMDB ID: EMD-79027
+API URL: https://www.ebi.ac.uk/emdb/api/entry/79027
+Contour Level: 0.145
+Resolution: 2.7

@@ -1,0 +1,4 @@
+comparison,W_stat,p_raw,rank_biserial_r,p_holm
+MICA vs ModelAngelo,19.5,0.24902,0.409,0.49805
+MICA vs CryoAtom,5.0,0.01074,-0.848,0.03223
+MICA vs EModelX,26.5,0.5918,0.197,0.5918

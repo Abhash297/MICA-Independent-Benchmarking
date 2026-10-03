@@ -1,0 +1,24 @@
+[9W0J / EMD-65506] already fetched, skipping
+[9MUH / EMD-48632] already fetched, skipping
+[24RC / EMD-69776] fetching FASTA...
+[24RC / EMD-69776] fetching map (this can take a while)...
+Traceback (most recent call last):
+  File "/Users/abhashshrestha/Downloads/MICA-Experiment/fetch_inputs.py", line 120, in <module>
+    main()
+  File "/Users/abhashshrestha/Downloads/MICA-Experiment/fetch_inputs.py", line 95, in main
+    map_ok = fetch_map(emdb_num, map_path, entry_dir)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/abhashshrestha/Downloads/MICA-Experiment/fetch_inputs.py", line 49, in fetch_map
+    result = subprocess.run(
+             ^^^^^^^^^^^^^^^
+  File "/Users/abhashshrestha/miniforge3/lib/python3.12/subprocess.py", line 550, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/abhashshrestha/miniforge3/lib/python3.12/subprocess.py", line 1209, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/abhashshrestha/miniforge3/lib/python3.12/subprocess.py", line 2116, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+  File "/Users/abhashshrestha/miniforge3/lib/python3.12/subprocess.py", line 1253, in _check_timeout
+    raise TimeoutExpired(
+subprocess.TimeoutExpired: Command '['curl', '-sL', '-f', '-o', 'input/69776/emd_69776.map.gz', 'https://ftp.ebi.ac.uk/pub/databases/emdb/structures/EMD-69776/map/emd_69776.map.gz']' timed out after 600 seconds

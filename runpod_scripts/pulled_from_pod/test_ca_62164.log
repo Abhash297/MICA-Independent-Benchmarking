@@ -1,0 +1,11 @@
+-------------------------------------------------------------------- CryoAtom2 --------------------------------------------------------------------
+By Baoquan Su, Yang lab.
+--------------------- CryoAtom2 Stage1 (Predict C-alpha or P atoms by RU-Net) ---------------------
+  0%|          | 0/64.0 [00:00<?, ?it/s]/root/miniconda3/envs/CryoAtom2/lib/python3.9/site-packages/torch/cuda/__init__.py:215: UserWarning: 
+NVIDIA RTX PRO 4500 Blackwell with CUDA capability sm_120 is not compatible with the current PyTorch installation.
+The current PyTorch install supports CUDA capabilities sm_50 sm_60 sm_61 sm_70 sm_75 sm_80 sm_86 sm_37 sm_90 compute_37.
+If you want to use the NVIDIA RTX PRO 4500 Blackwell GPU with PyTorch, please check the instructions at https://pytorch.org/get-started/locally/
+
+  warnings.warn(
+  6%|▋         | 4/64.0 [02:12<33:13, 33.22s/it] 12%|█▎        | 8/64.0 [02:16<13:12, 14.14s/it] 19%|█▉        | 12/64.0 [02:19<06:58,  8.05s/it] 25%|██▌       | 16/64.0 [02:22<04:09,  5.19s/it] 31%|███▏      | 20/64.0 [02:25<02:38,  3.61s/it] 38%|███▊      | 24/64.0 [02:28<01:46,  2.65s/it] 44%|████▍     | 28/64.0 [02:32<01:13,  2.05s/it] 50%|█████     | 32/64.0 [02:35<00:52,  1.65s/it] 56%|█████▋    | 36/64.0 [02:38<00:38,  1.38s/it] 62%|██████▎   | 40/64.0 [02:41<00:28,  1.20s/it] 69%|██████▉   | 44/64.0 [02:44<00:21,  1.08s/it] 75%|███████▌  | 48/64.0 [02:48<00:15,  1.00it/s] 81%|████████▏ | 52/64.0 [02:51<00:11,  1.06it/s] 88%|████████▊ | 56/64.0 [02:56<00:08,  1.05s/it] 94%|█████████▍| 60/64.0 [03:03<00:04,  1.25s/it]100%|██████████| 64/64.0 [03:10<00:00,  1.38s/it]100%|██████████| 64/64.0 [03:13<00:00,  3.03s/it]Downloading: "https://dl.fbaipublicfiles.com/fair-esm/models/esm2_t33_650M_UR50D.pt" to /root/.cache/torch/hub/checkpoints/esm2_t33_650M_UR50D.pt
+Downloading: "https://dl.fbaipublicfiles.com/fair-esm/regression/esm2_t33_650M_UR50D-contact-regression.pt" to /root/.cache/torch/hub/checkpoints/esm2_t33_650M_UR50D-contact-regression.pt

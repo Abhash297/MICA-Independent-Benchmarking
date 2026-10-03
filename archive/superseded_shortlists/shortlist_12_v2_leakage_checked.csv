@@ -1,0 +1,13 @@
+pdb_id,size_bin,res_bin,resolution,residue_count,chain_count,emdb_ids,title
+9W0J,small,near-atomic (<2.2),2.09,829,5,EMD-65506,CryoEM structure of EV-D68 strain Fermon in complex with MFSD6-L3-S209A
+9MUH,small,mid (2.8-3.4),3.1,498,2,EMD-48632,Mus musculus TASK-1 (KCNK3) in MSP1E3D1 lipid nanodisc at pH 6.0 and 100 mM KCl
+24RC,medium,high (2.2-2.8),2.61,1252,2,EMD-69776,Cryo-EM structure of human sodium pump W931R mutant in K+-occluded E2-Pi state
+30FM,medium,low (3.4-4.0),3.6,2100,3,EMD-57539,Structure of histone H1 in an import-chaperone complex with importin beta and importin 7 (full-length model)
+9PIK,small,high (2.2-2.8),2.62,1010,2,EMD-71670,"Structure of the two-pore domain, outwardly rectifying potassium (TOK1) from Candida albicans, overall structure"
+24VO,small,low (3.4-4.0),3.64,964,4,EMD-69846,"Cryo-EM structure of the human wild-type KCNQ2/KCNQ3 heterotetramer (1:3 stoichiometry) in apo state (M2333 WT, without symmetry expansion)"
+9RY7,medium,near-atomic (<2.2),2.17,1310,5,EMD-54373,Focused refinement of closed pentamer of the Rhodospirillum rubrum encapsulin from symmetry expansion of icosahedral single particle reconstruction
+9U5Z,medium,mid (2.8-3.4),3.1,2116,2,EMD-63892,C3 convertases zymogen C4b2 in activation state
+9OW6,large,near-atomic (<2.2),2.02,2226,6,EMD-70930,Hedgehog coronavirus ErinCoV-Ger12 spike receptor binding domain in complex with hedgehog APN
+30GH,large,mid (2.8-3.4),3.1,2145,6,EMD-57756,CryoEM structure of human MATa2 in complex with MAT2B isoform v1 at 2.6 A resolution
+9XVI,large,low (3.4-4.0),3.65,2964,4,EMD-67289,Arabidopsis ISA2-ISA1-ISA1-ISA2 heterotetramer
+9T94,large,high (2.2-2.8),2.6,3091,4,EMD-55716,"cryo-EM structure of AKT phosphorylated mTOR complex 2, focused on a single protomer"

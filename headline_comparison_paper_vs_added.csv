@@ -1,0 +1,19 @@
+metric,in_paper_protocol,comparison,p_holm,significant,direction
+TM-score (paper metric),True,MICA vs ModelAngelo,1.0,False,MICA higher
+TM-score (paper metric),True,MICA vs CryoAtom,1.0,False,MICA higher
+TM-score (paper metric),True,MICA vs EModelX,1.0,False,MICA higher
+Ca match % (paper metric),True,MICA vs ModelAngelo,0.49805,False,MICA higher
+Ca match % (paper metric),True,MICA vs CryoAtom,0.03223,True,MICA lower
+Ca match % (paper metric),True,MICA vs EModelX,0.5918,False,MICA higher
+Sequence match % (paper metric),True,MICA vs ModelAngelo,0.44922,False,MICA lower
+Sequence match % (paper metric),True,MICA vs CryoAtom,0.09668,False,MICA lower
+Sequence match % (paper metric),True,MICA vs EModelX,0.44922,False,MICA higher
+Aligned Ca length (paper metric),True,MICA vs ModelAngelo,0.44238,False,MICA higher
+Aligned Ca length (paper metric),True,MICA vs CryoAtom,1.0,False,MICA higher
+Aligned Ca length (paper metric),True,MICA vs EModelX,1.0,False,MICA higher
+Sequence identity (paper metric),True,MICA vs ModelAngelo,0.95264,False,MICA lower
+Sequence identity (paper metric),True,MICA vs CryoAtom,0.9375,False,MICA lower
+Sequence identity (paper metric),True,MICA vs EModelX,0.9375,False,MICA higher
+"CA SCORE (our addition, NOT in paper)",False,MICA vs ModelAngelo,0.00488,True,MICA lower
+"CA SCORE (our addition, NOT in paper)",False,MICA vs CryoAtom,0.00146,True,MICA lower
+"CA SCORE (our addition, NOT in paper)",False,MICA vs EModelX,0.07422,False,MICA higher

@@ -1,0 +1,13 @@
+pdb_id,size_bin,res_bin,resolution,residue_count,chain_count,emdb_ids,title
+9W0J,small,near-atomic (<2.2),2.09,829,5,EMD-65506,CryoEM structure of EV-D68 strain Fermon in complex with MFSD6-L3-S209A
+9LL8,small,high (2.2-2.8),2.62,882,4,EMD-63193,Psilocin-bound Serotonin 2A (5-HT2A) receptor-Gi complex
+9MUH,small,mid (2.8-3.4),3.1,498,2,EMD-48632,Mus musculus TASK-1 (KCNK3) in MSP1E3D1 lipid nanodisc at pH 6.0 and 100 mM KCl
+9YSR,small,low (3.4-4.0),3.63,757,2,EMD-73426,"Local refinement of hACE2/SARS-CoV-2 BA.3.2.1 spike, conformation 1"
+11NW,medium,near-atomic (<2.2),2.16,1372,4,EMD-75873,Rabbit muscle Aldolase (C1 symmetry) determined using the TFS Vitrobot Mark IV in the presence of 1x SurfACT
+24RC,medium,high (2.2-2.8),2.61,1252,2,EMD-69776,Cryo-EM structure of human sodium pump W931R mutant in K+-occluded E2-Pi state
+9RGN,medium,mid (2.8-3.4),3.1,1655,5,EMD-53951,SsCl at pH 6.5 + IVM - Partially opened
+30FM,medium,low (3.4-4.0),3.6,2100,3,EMD-57539,Structure of histone H1 in an import-chaperone complex with importin beta and importin 7 (full-length model)
+9OVN,large,near-atomic (<2.2),1.93,3594,3,EMD-70903,Cryo-EM structure of HCoV-OC43-C2 Spike glycoprotein
+9NI4,large,high (2.2-2.8),2.61,2180,4,EMD-49452,Cryo-EM structure of the PI3K alpha/KRas/HER3 phosphopeptide complex dimer on POPC/POPS/PIP2 nanodiscs
+30KW,large,mid (2.8-3.4),3.1,3924,4,EMD-57864,Human Trpm4 at 8 degrees Celsius
+9ZCV,large,low (3.4-4.0),3.65,4008,4,EMD-74042,"Human TRPM8 fully-swapped, desensitized, ligand-free structure at 4 degrees Celsius resolved in cell vesicles"

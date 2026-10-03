@@ -1,0 +1,7 @@
+metric,n_entries,k_methods,chi2,df,p_value,kendalls_w
+TM_score_ref,12,4,6.7,3,0.0821,0.186
+Ca_match,12,4,10.091,3,0.01781,0.28
+Seq_match_pct,12,4,12.566,3,0.00568,0.349
+Aligned_length,12,4,6.963,3,0.07308,0.193
+Seq_ID,12,4,3.791,3,0.28495,0.105
+CA_score,12,4,27.555,3,0.0,0.765
