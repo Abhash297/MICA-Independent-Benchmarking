@@ -9,12 +9,38 @@ every test set used in MICA's own publication, including its newest
 
 ## Pipeline overview
 
-1. **Candidate pool construction** (`scripts/dataset/rcsb_2026_cryoem_query.py`,
-   `filter_pure_protein.py`, `filter_emdb_release_date.py`) — query RCSB/EMDB
-   for 2026 single-particle cryo-EM depositions, filter to pure-protein
-   entries, verify the density map itself (not just the structure) was
-   released in 2026. Output: `data/pool/rcsb_2026_final_candidates.csv`
-   (3,745 candidates).
+1. **Candidate pool construction** — three sequential filters, each
+   dropping entries for a specific, documented reason:
+   1. `rcsb_2026_cryoem_query.py` — queries RCSB for entries with
+      `exptl.method = ELECTRON MICROSCOPY` and
+      `rcsb_accession_info.initial_release_date` in
+      `[2026-01-01, 2026-09-26]`, pulling resolution and linked EMDB IDs
+      for each hit. **5,163 raw candidates.**
+   2. `filter_pure_protein.py` — two sub-filters, both on structured
+      RCSB fields (not title keywords, which miss protein+NA complexes
+      like spliceosomes or CRISPR-Cas effectors that don't say
+      "ribosome" anywhere in the name):
+      - `rcsb_entry_info.polymer_composition`: keep pure protein
+        (heteromeric + homomeric) and protein+glycan entries (glycans
+        are sugar decorations, not a competing macromolecule); drop
+        anything containing nucleic acid. **4,070 remain.**
+      - `em_experiment.reconstruction_method`: keep `SINGLE PARTICLE`
+        only; drop `HELICAL` and `SUBTOMOGRAM AVERAGING` (different box
+        geometry/resolution regime, none of the 4 benchmarked methods
+        were built or evaluated for these). **3,752 remain.**
+   3. `filter_emdb_release_date.py` — a structure's own listed release
+      date does **not** guarantee its linked density map is actually
+      new (re-refinements and stale EMDB cross-references can leave a
+      2026-dated structure pointing at a years-old map). Each linked
+      map's own `map_release` date is independently verified via the
+      EMDB API; any entry whose map isn't also genuinely in
+      `[2026-01-01, 2026-09-26]` is dropped regardless of the
+      structure's own date. **7 false positives caught and dropped.**
+
+   Output: `data/pool/rcsb_2026_final_candidates.csv` — **3,745
+   candidates**, each confirmed pure-protein, single-particle cryo-EM,
+   with both the structure and its density map genuinely released in
+   2026.
 2. **Benchmark selection** (`scripts/dataset/build_shortlist.py`,
    `candidate_dataset_eda.ipynb`) — stratified random sampling over a 3×4
    grid (protein size × map resolution), seed 42, one entry per cell.
