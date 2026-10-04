@@ -5,14 +5,15 @@
 # every few minutes during a batch run without real cost.
 #
 # Fill in POD_HOST / POD_PORT / POD_KEY once the pod is deployed.
+# Run from the repo root.
 
 set -euo pipefail
 
-POD_HOST="root@38.80.152.147"
-POD_PORT="34732"
+POD_HOST="root@<POD_IP>"
+POD_PORT="<POD_PORT>"
 POD_KEY="$HOME/.ssh/id_ed25519_runpod"
 
-LOCAL_ROOT="/Users/abhashshrestha/Downloads/MICA-Experiment/input"
+LOCAL_ROOT="./input"
 REMOTE_ROOT="/workspace/input"
 
 SSH_OPTS=(-p "$POD_PORT" -i "$POD_KEY" -o StrictHostKeyChecking=accept-new)
@@ -30,10 +31,10 @@ done
 echo "=== Syncing results CSV ==="
 rsync -avz -e "ssh ${SSH_OPTS[*]}" \
   "${POD_HOST}:/workspace/docking_results.csv" \
-  "/Users/abhashshrestha/Downloads/MICA-Experiment/runpod_scripts/docking_results.csv" 2>&1 || true
+  "./docking_results.csv" 2>&1 || true
 
 echo "=== Done. Current tally: ==="
-if [ -f "/Users/abhashshrestha/Downloads/MICA-Experiment/runpod_scripts/docking_results.csv" ]; then
-  tail -n +2 "/Users/abhashshrestha/Downloads/MICA-Experiment/runpod_scripts/docking_results.csv" | \
+if [ -f "./docking_results.csv" ]; then
+  tail -n +2 "./docking_results.csv" | \
     awk -F',' '{print $3}' | sort | uniq -c | sort -rn
 fi

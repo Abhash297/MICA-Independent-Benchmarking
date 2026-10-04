@@ -59,7 +59,8 @@ every test set used in MICA's own publication, including its newest
    density map (`min_cc=0.2`, MICA's own default), combined per-chain into
    MICA's required single-file input format. Run on a dedicated CPU pod.
    Results: `data/docking/docking_results.csv`; full per-domain accounting
-   in the (locally kept, not in this repo) `FAILED_CASES.md`.
+   (including the search-failure vs. infrastructure-failure distinction
+   behind the 14.3% figure) in `data/docking/FAILED_CASES.md`.
 6. **MICA inference** (`runpod_scripts/mica_batch.py`) — MICA's own
    released code, default parameters, run on a dedicated GPU pod. Falls
    back to map-only prediction for entries with zero docked domains.
@@ -109,6 +110,9 @@ every test set used in MICA's own publication, including its newest
 ```
 .
 ├── README.md
+├── patches/                  # required fixes to upstream MICA before running anything (see patches/README.md)
+│   ├── dock_in_map.py, predict.py
+│   └── README.md
 ├── scripts/
 │   ├── dataset/              # candidate pool construction -> benchmark selection -> input acquisition
 │   │   ├── rcsb_2026_cryoem_query.py, filter_pure_protein.py, filter_emdb_release_date.py
@@ -145,14 +149,140 @@ excluded from version control due to size. Available on request.
 
 ## Reproducing the analysis
 
-Each stage's script can be re-run independently given its documented
-inputs; scripts under `scripts/` use paths relative to their own
-location, so run them from wherever they live (e.g.
-`python3 scripts/dataset/fetch_inputs.py`). The statistics notebook
-(`analysis/statistical_analysis.ipynb`) can be re-executed in place with
-`jupyter nbconvert --to notebook --execute --inplace
-analysis/statistical_analysis.ipynb` any time the underlying `data/`
-CSVs change — it regenerates every figure and results CSV from scratch.
-Pod-based stages (docking, MICA/baseline inference) require the compute
-environments described in each `runpod_scripts/*_batch.py` script's own
-configuration.
+### 0. Environment
+
+```bash
+git clone https://github.com/jianlin-cheng/MICA.git
+cp patches/dock_in_map.py MICA/utils/dock_in_map.py
+cp patches/predict.py MICA/utils/predict.py
+conda env create -f MICA/environment.yml   # or install modern-version equivalents; see patches/README.md
+pip install superpose3d==1.1.1             # exact pin required, not the current PyPI default
+```
+
+Apply the patches **before** running anything in `runpod_scripts/` —
+without them, docking OOM-kills itself and MICA inference crashes
+partway through Cα-sequence alignment. Rationale for each patch is in
+`patches/README.md`.
+
+Also required, not bundled here (all have their own licenses/install
+steps):
+- **Phenix** (academic license, phenix-online.org) — needed for
+  `phenix.dock_in_map`, `phenix.real_space_refine`,
+  `phenix.chain_comparison`.
+- **MMseqs2** (`brew install mmseqs2` or equivalent) — only needed to
+  re-run the leakage screen in step 2, not for steps 3 onward.
+- **ModelAngelo**, **CryoAtom**, **EModelX(+AF)** — each baseline's own
+  repo/weights (see `runpod_scripts/{modelangelo,cryoatom,emodelx}_batch.py`
+  for the exact setup each one needs; `runpod_scripts/COMMANDS.md` has
+  the full walkthrough including conda-env gotchas hit during this run).
+
+### 1. Rebuild the candidate pool and benchmark selection (optional)
+
+Already-final output is `data/benchmark/shortlist_12_v3_stratified_random.csv`
+— skip this step unless you want to verify the selection/screening
+itself (e.g. with a different seed or a later RCSB/EMDB snapshot).
+
+```bash
+python3 scripts/dataset/rcsb_2026_cryoem_query.py
+python3 scripts/dataset/filter_pure_protein.py
+python3 scripts/dataset/filter_emdb_release_date.py
+python3 scripts/dataset/build_shortlist.py
+```
+
+### 2. Fetch inputs for the 12 benchmark entries
+
+```bash
+python3 scripts/dataset/fetch_inputs.py
+```
+
+Pulls, per entry: FASTA (RCSB), density map (EMDB), ground-truth
+structure (`https://files.rcsb.org/download/<PDB_ID>.cif`).
+
+### 3. Generate and submit AF3 jobs
+
+```bash
+python3 scripts/dataset/utils/fasta_to_AF3_json.py -f input/<emdb_num>/<pdb_id>.fasta -n <emdb_num>
+```
+
+Submission to the AlphaFold Server is manual (no public submission
+API) — batch-upload the combined per-entry JSON, run each job, place
+`*_model_0.cif` results into `input/<emdb_num>/AF3_results/<chain>/`.
+
+### 4. Domain segmentation
+
+Run upstream MICA's own `utils/process_AF3_results.py` per entry
+(`-d cpu`, no GPU needed) — splits chains into Merizo-detected domains.
+
+### 5. Domain docking (CPU pod)
+
+```bash
+python3 runpod_scripts/dock_batch.py
+```
+
+Worker pool across all entries' domains, CPU/RAM-bound only. Expect a
+non-trivial failure/timeout rate on large maps — this run's was
+21/147 (14.3%) genuine CC≥0.2 successes; see
+`data/docking/FAILED_CASES.md` for the full per-domain breakdown and
+why (infrastructure constraints — memory ceiling + enforced 45-min
+timeout — not Phenix or MICA search failures; that distinction is the
+key thing to check before concluding anything about MICA itself from
+this number).
+
+### 6. MICA inference (GPU pod)
+
+```bash
+python3 runpod_scripts/combine_docked.py   # builds each entry's combined docked-domain file
+python3 runpod_scripts/mica_batch.py       # MICA's own released code, default params
+```
+
+Falls back to map-only prediction automatically for entries with zero
+docked domains (3/12 in this run).
+
+### 7. Baseline inference (same GPU pod, same 12 inputs)
+
+```bash
+python3 runpod_scripts/modelangelo_batch.py
+python3 runpod_scripts/cryoatom_batch.py
+python3 runpod_scripts/emodelx_batch.py
+```
+
+Pretrained weights, no retraining, identical map+sequence inputs to
+MICA's run.
+
+### 8. Evaluation
+
+```bash
+python3 scripts/evaluation/evaluate_usalign.py
+python3 scripts/evaluation/evaluate_chain_comparison.py
+python3 scripts/evaluation/recompute_cc.py   # independent CC cross-check for low-confidence docks
+```
+
+Writes `data/evaluation/evaluation_usalign.csv`,
+`evaluation_chain_comparison.csv`, `evaluation_merged.csv`.
+
+### 9. Statistics
+
+```bash
+jupyter nbconvert --to notebook --execute --inplace analysis/statistical_analysis.ipynb
+```
+
+Regenerates every results CSV in `data/stats/` and every figure in
+`figures/` from the `data/evaluation/` CSVs — Friedman omnibus +
+Holm-corrected Wilcoxon post-hoc (MICA vs. each baseline) + bootstrap
+confidence intervals, stratified by docking-coverage mode.
+
+### What to check if your numbers differ
+
+- **Docking yield** (step 5) is the most infrastructure-sensitive
+  number in this pipeline — it depends on worker-pool size, per-job
+  timeout, and available RAM, none of which are part of MICA's own
+  method. A different yield on different hardware is expected, not a
+  correctness issue.
+- Steps 6–9 should be exactly reproducible given the same docked-domain
+  inputs — every intermediate and final CSV from this run is in `data/`
+  to diff against.
+
+Pod-based stages (5–7) require the compute environments described in
+each `runpod_scripts/*_batch.py` script's own configuration; none of
+them are GPU-architecture-specific beyond what each tool itself
+requires.

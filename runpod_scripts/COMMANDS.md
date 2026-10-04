@@ -240,7 +240,7 @@ already covers basic navigation with zero setup.
 ## After connecting — what to check once you're in a shell
 
 ```bash
-ssh -p 34732 -i ~/.ssh/id_ed25519_runpod root@38.80.152.147
+ssh -p <POD_PORT> -i ~/.ssh/id_ed25519_runpod root@<POD_IP>
 ```
 (Use `id_ed25519_runpod`, not the default `id_ed25519` RunPod's own
 auto-generated command shows — that's not the key registered with
