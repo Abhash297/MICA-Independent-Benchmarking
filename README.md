@@ -179,8 +179,9 @@ steps):
 ### 1. Rebuild the candidate pool and benchmark selection (optional)
 
 Already-final output is `data/benchmark/shortlist_12_v3_stratified_random.csv`
-— skip this step unless you want to verify the selection/screening
-itself (e.g. with a different seed or a later RCSB/EMDB snapshot).
+— only needed to verify the selection/screening itself (e.g. with a
+different seed or a later RCSB/EMDB snapshot), not for reproducing
+the benchmark results.
 
 ```bash
 python3 scripts/dataset/rcsb_2026_cryoem_query.py
@@ -271,16 +272,17 @@ Regenerates every results CSV in `data/stats/` and every figure in
 Holm-corrected Wilcoxon post-hoc (MICA vs. each baseline) + bootstrap
 confidence intervals, stratified by docking-coverage mode.
 
-### What to check if your numbers differ
+### Variance across reruns
 
-- **Docking yield** (step 5) is the most infrastructure-sensitive
-  number in this pipeline — it depends on worker-pool size, per-job
-  timeout, and available RAM, none of which are part of MICA's own
-  method. A different yield on different hardware is expected, not a
-  correctness issue.
-- Steps 6–9 should be exactly reproducible given the same docked-domain
-  inputs — every intermediate and final CSV from this run is in `data/`
-  to diff against.
+**Docking yield (step 5)** is the most infrastructure-sensitive number
+in the pipeline — it depends on worker-pool size, per-job timeout, and
+available RAM, none of which are part of MICA's own method. A
+different yield on different hardware reflects that, not a
+correctness issue.
+
+**Steps 6–9** should be exactly reproducible given the same
+docked-domain inputs — every intermediate and final CSV from this run
+is in `data/` to diff against.
 
 Pod-based stages (5–7) require the compute environments described in
 each `runpod_scripts/*_batch.py` script's own configuration; none of
