@@ -1,11 +1,15 @@
 # MICA Benchmark — Independent Evaluation on 2026 Cryo-EM Structures
 
 Independent benchmark of **MICA** (Gyawali, Dhakal & Cheng, *Communications
-Chemistry* 2025) against three baseline methods — **ModelAngelo**,
-**EModelX(+AF)**, and **CryoAtom** — on a newly constructed, leakage-screened
-set of 12 cryo-EM structures released in 2026. All 12 structures postdate
-every test set used in MICA's own publication, including its newest
-(`test_2025`, structures released after January 1, 2025).
+Chemistry* 2025) against four baseline methods — **ModelAngelo**,
+**EModelX(+AF)**, **CryoAtom**, and **CryoZeta** — on a newly constructed,
+leakage-screened set of 12 cryo-EM structures released in 2026. All 12
+structures postdate every test set used in MICA's own publication, including
+its newest (`test_2025`, structures released after January 1, 2025).
+CryoZeta was added after the main 4-method comparison was complete and is
+reported as a separate, clearly-scoped extension — see
+[Headline results](#headline-results) and
+[step 10](#10-cryozeta-5th-method-extended-comparison) below.
 
 ## Pipeline overview
 
@@ -105,6 +109,23 @@ every test set used in MICA's own publication, including its newest
   this benchmark's deliberate novelty (harder for AF3's templates) and
   documented compute-budget constraints not present in the original study.
 
+**CryoZeta (5th method, added separately)**: of its 12 entries, 10
+produced complete structures and 2 (`EMD-67233`, `EMD-73799`) are
+disclosed partial results (3/4 and 9/12 chains — a registration-algorithm
+failure in CryoZeta's own released pipeline, no resume capability),
+excluded from the comparison below as not comparable to a complete
+prediction. Only 3 of the paper's 5 reproduced metrics (TM-score, aligned
+Cα length, sequence identity — all US-align-derived) are usable for
+CryoZeta: its written coordinates carry a residual rotation/translation
+offset from the true map frame (confirmed by direct inspection — see
+`data/cryozeta/CRYOZETA_FINDINGS.md` for full per-entry provenance and every
+bug found in CryoZeta's released code) that `chain_comparison`'s
+un-superposed scoring can't handle, though US-align is unaffected. On
+those 3 metrics, at n=10: **CryoZeta loses significantly to no baseline**,
+and wins significantly against MICA and EModelX(+AF) on TM-score, and
+against MICA, ModelAngelo, and EModelX(+AF) on aligned Cα length (all
+Holm-corrected p<0.05).
+
 ## Repository structure
 
 ```
@@ -119,6 +140,8 @@ every test set used in MICA's own publication, including its newest
 │   │   ├── build_shortlist.py, candidate_dataset_eda.ipynb, fetch_inputs.py
 │   │   └── utils/fasta_to_AF3_json.py
 │   └── evaluation/           # evaluate_usalign.py, evaluate_chain_comparison.py, recompute_cc.py
+│       # + evaluate_cryozeta_usalign.py, evaluate_cryozeta_chain_comparison.py,
+│       #   select_cryozeta_top_pick.py, analyze_cryozeta_5method.py
 ├── runpod_scripts/           # pod batch runners
 │   ├── dock_batch.py, combine_docked.py          #   docking
 │   ├── mica_batch.py                             #   MICA inference
@@ -132,8 +155,11 @@ every test set used in MICA's own publication, including its newest
 │   ├── benchmark/             # the final 12-entry shortlist, training sequences, contour levels
 │   ├── docking/                # docking_results.csv, cc_recomputation_unknown_domains.csv
 │   ├── evaluation/             # evaluation_usalign.csv, evaluation_chain_comparison.csv, evaluation_merged.csv
-│   └── stats/                  # Friedman/Wilcoxon/descriptive/stratified results
-├── figures/                  # dataset_distribution.png, all_metrics_boxplots.png, tm_score_by_coverage.png
+│   │                            #   + evaluation_*_cryozeta.csv, evaluation_cryozeta_5method_merged.csv
+│   ├── stats/                  # Friedman/Wilcoxon/descriptive/stratified results (+ *_5method_n10.csv for CryoZeta)
+│   └── cryozeta/                # CRYOZETA_FINDINGS.md (per-entry provenance, bugs), CRYOZETA_EXPLAINED.md (methodology)
+├── figures/                  # dataset_distribution.png, all_metrics_boxplots.png, tm_score_by_coverage.png,
+│                                #   cryozeta_5method_boxplots.png
 ├── reference/
 │   ├── MICA_cryo-EM 6.pdf, supplementary/        # the MICA paper + its SI
 │   └── sanity_check/                             # pipeline sanity-test notebook
@@ -271,6 +297,29 @@ Regenerates every results CSV in `data/stats/` and every figure in
 `figures/` from the `data/evaluation/` CSVs — Friedman omnibus +
 Holm-corrected Wilcoxon post-hoc (MICA vs. each baseline) + bootstrap
 confidence intervals, stratified by docking-coverage mode.
+
+### 10. CryoZeta (5th method, extended comparison)
+
+CryoZeta's raw per-entry output isn't included in this repository
+(`baseline_output/` is git-excluded, same as the other 4 methods — see
+[Data not included](#data-not-included-in-this-repository)). Given that raw
+output, reproduce the comparison with:
+
+```bash
+python3 scripts/evaluation/select_cryozeta_top_pick.py      # picks each entry's true top-ranked structure
+python3 scripts/evaluation/evaluate_cryozeta_usalign.py
+python3 scripts/evaluation/evaluate_cryozeta_chain_comparison.py
+python3 scripts/evaluation/analyze_cryozeta_5method.py       # Friedman + Wilcoxon, n=10, standalone script
+jupyter nbconvert --to notebook --execute --inplace analysis/statistical_analysis.ipynb  # also regenerates the CryoZeta section + figure
+```
+
+`select_cryozeta_top_pick.py`'s docstring explains why this isn't a trivial
+"take `sample_0`" operation — which file is actually the top-ranked
+structure depends on whether CryoZeta's own `combine.py` ran successfully
+for that entry (see `data/cryozeta/CRYOZETA_FINDINGS.md` for the full
+per-entry breakdown, every bug found in CryoZeta's released code, and the
+root-caused explanation for why 2 entries are partial and 7 of 10 score
+zero on `chain_comparison`'s metrics specifically).
 
 ### Variance across reruns
 

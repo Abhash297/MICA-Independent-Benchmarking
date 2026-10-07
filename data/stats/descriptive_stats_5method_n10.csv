@@ -1,0 +1,16 @@
+metric,method,n,median,ci_lo,ci_hi
+TM-score,MICA,10,0.969,0.6979,0.9969
+TM-score,ModelAngelo,10,0.9718,0.7392,0.9957
+TM-score,CryoAtom,10,0.996,0.8402,0.9984
+TM-score,EModelX,10,0.9476,0.8147,0.994
+TM-score,CryoZeta,10,0.9938,0.9765,0.9981
+Aligned Ca length,MICA,10,1380.0,640.5,2039.0
+Aligned Ca length,ModelAngelo,10,1147.5,909.0,2039.0
+Aligned Ca length,CryoAtom,10,1359.5,826.0,2039.0
+Aligned Ca length,EModelX,10,1258.0,872.0,2039.0
+Aligned Ca length,CryoZeta,10,1389.5,946.5,2044.0
+Sequence identity,MICA,10,0.994,0.96,0.9985
+Sequence identity,ModelAngelo,10,0.992,0.978,0.9995
+Sequence identity,CryoAtom,10,0.994,0.9825,1.0
+Sequence identity,EModelX,10,0.992,0.925,0.999
+Sequence identity,CryoZeta,10,0.9995,0.995,1.0
