@@ -157,7 +157,7 @@ Holm-corrected p<0.05).
 │   ├── evaluation/             # evaluation_usalign.csv, evaluation_chain_comparison.csv, evaluation_merged.csv
 │   │                            #   + evaluation_*_cryozeta.csv, evaluation_cryozeta_5method_merged.csv
 │   ├── stats/                  # Friedman/Wilcoxon/descriptive/stratified results (+ *_5method_n10.csv for CryoZeta)
-│   └── cryozeta/                # CRYOZETA_FINDINGS.md (per-entry provenance, bugs), CRYOZETA_EXPLAINED.md (methodology)
+│   └── cryozeta/                # CRYOZETA_FINDINGS.md (per-entry provenance, bugs, hardware)
 ├── figures/                  # dataset_distribution.png, all_metrics_boxplots.png, tm_score_by_coverage.png,
 │                                #   cryozeta_5method_boxplots.png
 ├── reference/
